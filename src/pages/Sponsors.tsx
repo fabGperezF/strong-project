@@ -3,13 +3,14 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import Footer from "@/components/Footer";
 import { Card } from "@/components/ui/card";
 import fondo from "@/assets/fondo.png";
-
-// 🔹 Importa tus logos desde la carpeta assets
 import sponsor1 from "@/assets/sp1.jpg";
 import sponsor2 from "@/assets/sp2.jpg";
 import sponsor3 from "@/assets/sp3.jpg";
+import { useNavigate } from "react-router-dom";
 
 const Sponsors = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="min-h-screen bg-background font-[Montserrat]">
       <Navbar />
@@ -168,12 +169,13 @@ const Sponsors = () => {
                 Si tu marca comparte nuestra visión y valores, contáctanos para explorar
                 una posible colaboración.
               </p>
-              <a
-                href="/contact"
+              {/* 🔹 Aquí reemplazamos <a href> por navegación SPA */}
+              <button
+                onClick={() => navigate("/contact")}
                 className="inline-block bg-primary-foreground text-primary px-8 py-3 rounded-md font-semibold hover:opacity-90 transition-opacity"
               >
                 CONTACTAR
-              </a>
+              </button>
             </Card>
           </div>
         </div>

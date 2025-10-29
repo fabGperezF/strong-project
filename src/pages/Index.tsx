@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { X } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import Footer from "@/components/Footer";
@@ -26,51 +27,49 @@ import despues2 from "@/assets/despues2.png";
 
 const Index = () => {
   const [showFlyers, setShowFlyers] = useState(false);
-  const flyers = [flyer1, flyer2, flyer3, flyer4];
   const [currentFlyer, setCurrentFlyer] = useState(0);
+  const flyers = [flyer1, flyer2, flyer3, flyer4];
+  const navigate = useNavigate(); // Hook para navegación interna
 
   return (
-    <div className="min-h-screen bg-background font-[Montserrat] relative">
+    <div className="min-h-screen bg-background font-[Montserrat] relative flex flex-col">
       <Navbar />
       <WhatsAppButton />
 
       {/* Hero Section */}
-          <section className="relative h-screen flex items-center justify-center overflow-hidden">
-            <div
-              className="absolute inset-0 bg-cover bg-center"
-              style={{
-                backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${fondo3})`,
-              }}
-            />
-            <div className="relative z-10 text-center text-white px-4 animate-fade-in">
-              <h1 className="text-6xl md:text-8xl font-light mb-4 tracking-tight font-quicksand">
-                &nbsp;SR. STRONG
-              </h1>
-              <p className="text-2xl md:text-4xl mb-12 tracking-wide font-monstserrat">
-                Docente y entrenador con más de 10 años de experiencia
-              </p>
-              <Button
-                size="lg"
-                variant="hero"
-                className="text-lg px-8 py-6 font-quicksand"
-                onClick={() => {
-                  window.location.href = "/about";
-                }}
-              >
-                QUIÉN SOY
-              </Button>
-            </div>
-          </section>
-
-      {/* Testimonial Section */} 
-      <section className="py-16 bg-muted "> 
-        <div className="container mx-auto px-4 text-center"> 
-          <blockquote className="text-2xl md:text-3xl font-quicksand text-foreground max-w-4xl mx-auto "> 
-            “La motivación es efímera, pero la disciplina es eterna.” 
-          </blockquote> 
-        </div> 
+      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${fondo3})`,
+          }}
+        />
+        <div className="relative z-10 text-center text-white px-4 animate-fade-in">
+          <h1 className="text-6xl md:text-8xl font-light mb-4 tracking-tight font-quicksand">
+            &nbsp;SR. STRONG
+          </h1>
+          <p className="text-2xl md:text-4xl mb-12 tracking-wide font-monstserrat">
+            Docente y entrenador con más de 10 años de experiencia
+          </p>
+          <Button
+            size="lg"
+            variant="hero"
+            className="text-lg px-8 py-6 font-quicksand"
+            onClick={() => navigate("/about")}
+          >
+            QUIÉN SOY
+          </Button>
+        </div>
       </section>
 
+      {/* Testimonial Section */}
+      <section className="py-16 bg-muted">
+        <div className="container mx-auto px-4 text-center">
+          <blockquote className="text-2xl md:text-3xl font-quicksand text-foreground max-w-4xl mx-auto">
+            “La motivación es efímera, pero la disciplina es eterna.”
+          </blockquote>
+        </div>
+      </section>
 
       {/* Transformaciones */}
       <section className="py-20 bg-background">
@@ -95,18 +94,17 @@ const Index = () => {
             {/* Texto al centro */}
             <div className="flex flex-col justify-center items-center text-center px-4">
               <p className="text-2xl font-semibold font-quicksand leading-relaxed">
-                “Cada transformación cuenta una historia diferente,  
-                pero todas tienen algo en común: la disciplina y el esfuerzo.”
+                “Cada transformación cuenta una historia diferente, pero todas tienen algo en común: la disciplina y el esfuerzo.”
               </p>
             </div>
 
             {/* Card 2 */}
             <TransformationCard
-  beforeImage={antes2}
-  afterImage={despues2}
-  name="María José Fernández"
-  duration="1 año"
-  testimonial={`Cuando empecé este proceso pesaba 90 kilos. Me costaba mucho mirarme al espejo sin sentirme frustrada, y aunque tenía ganas de cambiar, no sabía por dónde empezar ni si realmente sería capaz de lograrlo. Me daba miedo fallar otra vez.
+              beforeImage={antes2}
+              afterImage={despues2}
+              name="María José Fernández"
+              duration="1 año"
+              testimonial={`Cuando empecé este proceso pesaba 90 kilos. Me costaba mucho mirarme al espejo sin sentirme frustrada, y aunque tenía ganas de cambiar, no sabía por dónde empezar ni si realmente sería capaz de lograrlo. Me daba miedo fallar otra vez.
 
 Ahí fue cuando apareció mi coach, y sinceramente, fue el mejor impulso que pude haber tenido. Desde el primer día estuvo conmigo al 100%, no solo como entrenador, sino como un verdadero apoyo en cada etapa. Me enseñó muchísimo: cómo entrenar correctamente, pero sobre todo, cómo creer en mí y en mi proceso.
 
@@ -117,12 +115,10 @@ Hoy, mirando hacia atrás, me doy cuenta de todo lo que he avanzado. No solo baj
 Este año juntos fue mucho más que un cambio físico. Fue un proceso de transformación personal en todos los sentidos. Aprendí a quererme, a confiar en mí y a entender que sí se puede, siempre que haya compromiso, guía y acompañamiento real.
 
 Gracias a mi coach por estar en cada paso, por enseñarme tanto y por creer en mí incluso cuando yo dudaba. Hoy puedo decir que soy una versión más fuerte, segura y feliz de mí misma. 💪❤️`}
-/>
-
+            />
           </div>
         </div>
       </section>
-
 
       {/* Products Section */}
       <section id="productos" className="py-20 bg-muted">
@@ -261,8 +257,6 @@ Gracias a mi coach por estar en cada paso, por enseñarme tanto y por creer en m
         </div>
       )}
 
-      
-
       {/* Redes */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4 text-center">
@@ -298,6 +292,7 @@ Gracias a mi coach por estar en cada paso, por enseñarme tanto y por creer en m
 };
 
 export default Index;
+
 
 
 

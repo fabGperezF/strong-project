@@ -1,20 +1,29 @@
+import { Link, useLocation } from "react-router-dom";
 import { Instagram, Music2 } from "lucide-react";
 
 const Footer = () => {
+  const location = useLocation();
   const currentYear = new Date().getFullYear();
 
   const handleSocialClick = (platform: string) => {
-    // INSTRUCCIÓN: Reemplaza las URLs con tus perfiles de redes sociales
     const urls = {
       instagram: "https://www.instagram.com/srstrong_/?hl=es-la",
       tiktok: "https://www.tiktok.com/@sr_strong?is_from_webapp=1&sender_device=pc",
     };
-
     window.open(urls[platform as keyof typeof urls], "_blank");
   };
 
+  const navLinks = [
+    { name: "Inicio", path: "/" },
+    { name: "Sobre Mí", path: "/about" },
+    { name: "Sponsors", path: "/sponsors" },
+    { name: "Contacto", path: "/contact" },
+  ];
+
+  const isActivePath = (path: string) => location.pathname === path;
+
   return (
-    <footer className="bg-primary text-primary-foreground py-12">
+    <footer className="bg-primary text-primary-foreground py-12 mt-auto">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Brand */}
@@ -29,26 +38,18 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold mb-4">Enlaces Rápidos</h4>
             <ul className="space-y-2 text-sm text-primary-foreground/80">
-              <li>
-                <a href="/" className="hover:text-primary-foreground transition-colors">
-                  Inicio
-                </a>
-              </li>
-              <li>
-                <a href="/about" className="hover:text-primary-foreground transition-colors">
-                  Sobre Mí
-                </a>
-              </li>
-              <li>
-                <a href="/sponsors" className="hover:text-primary-foreground transition-colors">
-                  Sponsors
-                </a>
-              </li>
-              <li>
-                <a href="/contact" className="hover:text-primary-foreground transition-colors">
-                  Contacto
-                </a>
-              </li>
+              {navLinks.map((link) => (
+                <li key={link.path}>
+                  <Link
+                    to={link.path}
+                    className={`hover:text-primary transition-colors ${
+                      isActivePath(link.path) ? "text-primary" : ""
+                    }`}
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
