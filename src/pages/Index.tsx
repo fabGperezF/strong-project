@@ -274,7 +274,7 @@ Gracias a mi coach por estar en cada paso, por enseñarme tanto y por creer en m
           </p>
           <InstagramPreview
             username="srstrong_"
-            profileUrl="https://www.instagram.com/srstrong_/tagged/?hl=es-la"
+            profileUrl="https://www.instagram.com/srstrong_/?hl=es-la"
             profileImage="https://imgur.com/haNzrmY.png"
           />
         </div>
