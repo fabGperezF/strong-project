@@ -45,7 +45,7 @@ const Index = () => {
           }}
         />
         <div className="relative z-10 text-center text-white px-4 animate-fade-in">
-          <h1 className="text-6xl md:text-8xl font-light mb-4 tracking-tight font-quicksand">
+          <h1 className="text-6xl md:text-8xl font-bold mb-4 tracking-tight font-helvetica">
             &nbsp;SR. STRONG
           </h1>
           <p className="text-2xl md:text-4xl mb-12 tracking-wide font-monstserrat">
