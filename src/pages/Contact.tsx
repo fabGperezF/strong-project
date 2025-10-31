@@ -187,7 +187,7 @@ const Contact = () => {
                       </div>
                       <div>
                         <h3 className="font-semibold mb-1 fond-quicksand">Teléfono / WhatsApp</h3>
-                        <p className="text-muted-foreground">+56 9 8915 2860</p>
+                        <p className="text-muted-foreground">+56 9 6836 5231</p>
                       </div>
                     </div>
                   </Card>

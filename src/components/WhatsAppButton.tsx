@@ -6,7 +6,7 @@ const WhatsAppButton = () => {
     // INSTRUCCIÓN: Reemplaza el número de teléfono con tu número de WhatsApp
     // Formato: código de país + número (sin espacios, guiones ni símbolos)
     // Ejemplo: "56912345678" para Chile
-    const phoneNumber = "56989152860";
+    const phoneNumber = "56968365231";
     const message = "Hola, me gustaría obtener más información";
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     
