@@ -9,6 +9,7 @@ import TransformationCard from "@/components/TransformationCard";
 import InstagramPreview from "@/components/InstagramPreview";
 import TikTokPreview from "@/components/TikTokPreview";
 import { Button } from "@/components/ui/button";
+
 import fondo3 from "@/assets/fondo3.png";
 import producto1 from "@/assets/producto1.png";
 import producto2 from "@/assets/producto2.png";
@@ -16,27 +17,54 @@ import producto3 from "@/assets/producto3.png";
 import producto4 from "@/assets/producto4.png";
 import producto5 from "@/assets/producto5.png";
 import producto6 from "@/assets/producto6.png";
+
 import flyer1 from "@/assets/flyer1.png";
 import flyer2 from "@/assets/flyer2.png";
 import flyer3 from "@/assets/flyer3.png";
 import flyer4 from "@/assets/flyer4.png";
+import flyer5 from "@/assets/flyer5.png";
+import flyer6 from "@/assets/flyer6.png";
+
+import terminos1 from "@/assets/terminos1.png";
+import terminos2 from "@/assets/terminos2.png";
+import terminos3 from "@/assets/terminos3.png";
+import terminos4 from "@/assets/terminos4.png";
+
 import antes1 from "@/assets/antes1.png";
 import despues1 from "@/assets/despues1.png";
 import antes2 from "@/assets/antes2.png";
 import despues2 from "@/assets/despues2.png";
 
+// 🔹 Agrega tus 5 imágenes de capacitaciones
+import cap1 from "@/assets/cap1.png";
+import cap2 from "@/assets/cap2.png";
+import cap3 from "@/assets/cap3.png";
+import cap4 from "@/assets/cap4.png";
+import cap5 from "@/assets/cap5.png";
+
 const Index = () => {
   const [showFlyers, setShowFlyers] = useState(false);
   const [currentFlyer, setCurrentFlyer] = useState(0);
-  const flyers = [flyer1, flyer2, flyer3, flyer4];
-  const navigate = useNavigate(); // Hook para navegación interna
+  const [flyers, setFlyers] = useState([]);
+  const navigate = useNavigate();
+
+  // 🔹 Abrir visor según grupo
+  const openFlyers = (group) => {
+    if (group === "strong") setFlyers([flyer4, flyer5, flyer6]);
+    else if (group === "team") setFlyers([flyer1, flyer2, flyer3]);
+    else if (group === "terms") setFlyers([terminos1, terminos2, terminos3, terminos4]);
+    else if (group === "caps") setFlyers([cap1, cap2, cap3, cap4, cap5]);
+
+    setCurrentFlyer(0);
+    setShowFlyers(true);
+  };
 
   return (
     <div className="min-h-screen bg-background font-[Montserrat] relative flex flex-col">
       <Navbar />
       <WhatsAppButton />
 
-      {/* Hero Section */}
+      {/* HERO */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
@@ -62,16 +90,14 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Testimonial Section */}
-      <section className="py-16 bg-muted">
-        <div className="container mx-auto px-4 text-center">
-          <blockquote className="text-2xl md:text-3xl font-quicksand text-foreground max-w-4xl mx-auto">
-            “La motivación es efímera, pero la disciplina es eterna.”
-          </blockquote>
-        </div>
+      {/* FRASE */}
+      <section className="py-16 bg-muted text-center">
+        <blockquote className="text-2xl md:text-3xl font-quicksand text-foreground max-w-4xl mx-auto">
+          “La motivación es efímera, pero la disciplina es eterna.”
+        </blockquote>
       </section>
 
-      {/* Transformaciones */}
+      {/* TRANSFORMACIONES */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 font-quicksand">
@@ -80,62 +106,46 @@ const Index = () => {
           <p className="text-xl text-muted-foreground mb-12">
             Resultados alcanzados con disciplina, constancia y un plan bien estructurado.
           </p>
-
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center justify-center">
-            {/* Card 1 */}
             <TransformationCard
               beforeImage={antes1}
               afterImage={despues1}
               name="Alfonso Rodríguez"
               duration="28 semanas"
-              testimonial="Antes no tenía energía ni motivación. Con este plan entendí la importancia de la constancia y hoy me siento en mi mejor versión, física y mentalmente."
+              testimonial="Antes no tenía energía ni motivación. Con este plan entendí la importancia de la constancia..."
             />
-
-            {/* Texto al centro */}
             <div className="flex flex-col justify-center items-center text-center px-4">
               <p className="text-2xl font-semibold font-quicksand leading-relaxed">
-                “Cada transformación cuenta una historia diferente, pero todas tienen algo en común: la disciplina y el esfuerzo.”
+                “Cada transformación cuenta una historia diferente, pero todas tienen algo en común:
+                la disciplina y el esfuerzo.”
               </p>
             </div>
-
-            {/* Card 2 */}
             <TransformationCard
               beforeImage={antes2}
               afterImage={despues2}
               name="María José Fernández"
               duration="1 año"
-              testimonial={`Cuando empecé este proceso pesaba 90 kilos. Me costaba mucho mirarme al espejo sin sentirme frustrada, y aunque tenía ganas de cambiar, no sabía por dónde empezar ni si realmente sería capaz de lograrlo. Me daba miedo fallar otra vez.
-
-Ahí fue cuando apareció mi coach, y sinceramente, fue el mejor impulso que pude haber tenido. Desde el primer día estuvo conmigo al 100%, no solo como entrenador, sino como un verdadero apoyo en cada etapa. Me enseñó muchísimo: cómo entrenar correctamente, pero sobre todo, cómo creer en mí y en mi proceso.
-
-Al principio me costó, tuve días de cansancio, dudas y momentos en que sentía que no avanzaba. Pero él siempre estuvo ahí, guiándome, explicándome, motivándome y recordándome que los resultados llegan cuando se hace el trabajo con constancia y paciencia.
-
-Hoy, mirando hacia atrás, me doy cuenta de todo lo que he avanzado. No solo bajé de peso, también gané confianza, fuerza, energía y una mentalidad completamente distinta. Aprendí a disfrutar el entrenamiento, a escuchar mi cuerpo y a sentirme orgullosa de cada pequeño logro.
-
-Este año juntos fue mucho más que un cambio físico. Fue un proceso de transformación personal en todos los sentidos. Aprendí a quererme, a confiar en mí y a entender que sí se puede, siempre que haya compromiso, guía y acompañamiento real.
-
-Gracias a mi coach por estar en cada paso, por enseñarme tanto y por creer en mí incluso cuando yo dudaba. Hoy puedo decir que soy una versión más fuerte, segura y feliz de mí misma. 💪❤️`}
+              testimonial="Aprendí a disfrutar el entrenamiento, a escuchar mi cuerpo y a sentirme orgullosa de cada pequeño logro."
             />
           </div>
         </div>
       </section>
 
-      {/* Products Section */}
-      <section id="productos" className="py-20 bg-muted">
+      {/* PRODUCTOS */}
+      <section id="productos" className="py-20 bg-muted relative">
         <div className="container mx-auto px-4">
-
           {/* STRONG PROJECT */}
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold mb-4 font-quicksand">
               STRONG PROJECT
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-monstserrat">
-              Strong Project es un programa de entrenamiento online personalizado, diseñado para quienes buscan mejorar.
+              Programa de entrenamiento online personalizado, diseñado para quienes buscan mejorar.
             </p>
           </div>
 
-          {/* Primer grupo */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+          {/* 3 productos */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-10">
             <ProductCard
               title="Plan Mensual"
               description="*PLAN MENSUAL NO INCLUYE ACCESO A CONTENIDO GRATUITO"
@@ -153,17 +163,27 @@ Gracias a mi coach por estar en cada paso, por enseñarme tanto y por creer en m
             />
           </div>
 
-          {/* STRONG PROJECT TEAM */}
+          {/* Botón STRONG */}
+          <div className="text-center mb-20">
+            <Button
+              onClick={() => openFlyers("strong")}
+              className="bg-primary text-white px-8 py-4 rounded-xl text-lg hover:scale-105 transition-transform"
+            >
+              VER DETALLES
+            </Button>
+          </div>
+
+          {/* STRONG TEAM */}
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold mb-4 font-quicksand">
               STRONG PROJECT TEAM
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-monstserrat">
-              Strong Project Team es un programa de Entrenamiento + Nutrición online personalizado, diseñado para quienes buscan maximizar sus resultados.
+              Entrenamiento + Nutrición online personalizado para maximizar resultados.
             </p>
           </div>
 
-          {/* Segundo grupo */}
+          {/* 3 productos */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
             <ProductCard
               title="Plan Mensual"
@@ -182,30 +202,68 @@ Gracias a mi coach por estar en cada paso, por enseñarme tanto y por creer en m
             />
           </div>
 
-          {/* Texto pequeño */}
-          <div className="text-center mt-6">
-            <p className="text-sm md:text-base text-muted-foreground tracking-wide font-monstserrat italic">
-              MAXIMIZA TUS RESULTADOS INCORPORANDO ASESORÍA NUTRICIONAL.
-            </p>
-          </div>
-
-          {/* Botón Ver Detalles */}
-          <div className="text-center mt-10">
+          {/* Botón TEAM */}
+          <div className="text-center mb-10">
             <Button
-              onClick={() => setShowFlyers(true)}
+              onClick={() => openFlyers("team")}
               className="bg-primary text-white px-8 py-4 rounded-xl text-lg hover:scale-105 transition-transform"
             >
               VER DETALLES
             </Button>
           </div>
+
+          {/* Botón Términos */}
+          <div className="flex justify-end mt-12">
+            <Button
+              onClick={() => openFlyers("terms")}
+              className="bg-gray-800 text-white px-6 py-3 rounded-lg text-base hover:bg-gray-700 transition"
+            >
+              VER TÉRMINOS Y CONDICIONES
+            </Button>
+          </div>
         </div>
       </section>
 
-      {/* Modal tipo visor PDF */}
+      {/* 🔹 NUEVA SECCIÓN: CAPACITACIONES PROFESIONALES */}
+      <section className="py-24 bg-background text-center">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 font-quicksand">
+            CAPACITACIONES PROFESIONALES
+          </h2>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-12 leading-relaxed">
+            "Llevo la ciencia del entrenamiento a la práctica real. Mis capacitaciones combinan
+            evidencia, experiencia y aplicación, para formar profesionales capaces de pensar,
+            razonar y ejecutar con excelencia dentro y fuera de la sala de musculación".
+          </p>
+
+          <div className="flex flex-col items-center space-y-8">
+            <img
+              src={cap1}
+              alt="Capacitaciones profesionales"
+              className="w-full max-w-3xl rounded-2xl shadow-xl object-cover"
+            />
+
+            <Button
+              onClick={() => openFlyers("caps")}
+              className="bg-primary text-white px-10 py-4 rounded-xl text-lg hover:scale-105 transition-transform"
+            >
+              VER DETALLES
+            </Button>
+
+            <Button
+              onClick={() => navigate("/contact")}
+              className="mt-6 bg-gray-900 text-white px-8 py-4 rounded-xl text-lg hover:bg-gray-800 transition"
+            >
+              COTIZA TU CAPACITACIÓN
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* MODAL VISOR */}
       {showFlyers && (
         <div className="fixed inset-0 bg-black/90 flex items-center justify-center z-50 animate-fade-in">
           <div className="relative w-full h-full flex items-center justify-center">
-            {/* Botón Cerrar */}
             <button
               onClick={() => setShowFlyers(false)}
               className="absolute top-6 right-8 text-white hover:text-gray-300 transition"
@@ -213,7 +271,6 @@ Gracias a mi coach por estar en cada paso, por enseñarme tanto y por creer en m
               <X size={36} />
             </button>
 
-            {/* Botón Anterior */}
             <button
               onClick={() =>
                 setCurrentFlyer((prev) => (prev === 0 ? flyers.length - 1 : prev - 1))
@@ -223,7 +280,6 @@ Gracias a mi coach por estar en cada paso, por enseñarme tanto y por creer en m
               ‹
             </button>
 
-            {/* Imagen Flyer */}
             <div className="flex justify-center items-center w-full h-full px-8">
               <img
                 src={flyers[currentFlyer]}
@@ -232,17 +288,17 @@ Gracias a mi coach por estar en cada paso, por enseñarme tanto y por creer en m
               />
             </div>
 
-            {/* Botón Siguiente */}
             <button
               onClick={() =>
-                setCurrentFlyer((prev) => (prev === flyers.length - 1 ? 0 : prev + 1))
+                setCurrentFlyer((prev) =>
+                  prev === flyers.length - 1 ? 0 : prev + 1
+                )
               }
               className="absolute right-6 text-white/80 hover:text-white transition text-5xl font-light"
             >
               ›
             </button>
 
-            {/* Indicadores */}
             <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex space-x-2">
               {flyers.map((_, index) => (
                 <span
@@ -257,33 +313,29 @@ Gracias a mi coach por estar en cada paso, por enseñarme tanto y por creer en m
         </div>
       )}
 
-      {/* Redes */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 font-quicksand">
-            SÍGUEME EN INSTAGRAM
-          </h2>
-          <p className="text-xl text-muted-foreground mb-12">
-            📚 Docente y entrenador | Entrena con propósito 🧠
-          </p>
-          <InstagramPreview
-            username="srstrong_"
-            profileUrl="https://www.instagram.com/srstrong_/?hl=es-la"
-            profileImage="https://imgur.com/haNzrmY.png"
-          />
-        </div>
+      {/* REDES */}
+      <section className="py-24 bg-muted text-center">
+        <h2 className="text-4xl md:text-5xl font-bold mb-4 font-quicksand">
+          SÍGUEME EN INSTAGRAM
+        </h2>
+        <p className="text-xl text-muted-foreground mb-12">
+          📚 Docente y entrenador | Entrena con propósito 🧠
+        </p>
+        <InstagramPreview
+          username="srstrong_"
+          profileUrl="https://www.instagram.com/srstrong_/?hl=es-la"
+          profileImage="https://imgur.com/haNzrmY.png"
+        />
       </section>
 
-      <section className="py-20 bg-muted">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 font-quicksand">
-            TAMBIÉN EN TIKTOK
-          </h2>
-          <p className="text-xl text-muted-foreground mb-12">
-            Tips rápidos, análisis técnicos y educación en entrenamiento.
-          </p>
-          <TikTokPreview username="srstrong" profileUrl="https://tiktok.com/@srstrong" />
-        </div>
+      <section className="py-24 bg-background text-center">
+        <h2 className="text-4xl md:text-5xl font-bold mb-4 font-quicksand">
+          TAMBIÉN EN TIKTOK
+        </h2>
+        <p className="text-xl text-muted-foreground mb-12">
+          Tips rápidos, análisis técnicos y educación en entrenamiento.
+        </p>
+        <TikTokPreview username="srstrong" profileUrl="https://tiktok.com/@srstrong" />
       </section>
 
       <Footer />
@@ -292,6 +344,8 @@ Gracias a mi coach por estar en cada paso, por enseñarme tanto y por creer en m
 };
 
 export default Index;
+
+
 
 
 
