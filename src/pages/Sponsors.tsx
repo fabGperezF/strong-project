@@ -74,7 +74,7 @@ const Sponsors = () => {
             <Card className="overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
               <div className="aspect-[9/16] w-full h-[620px] mx-auto">
                 <iframe
-                  src="https://www.instagram.com/p/DQP55n6kSWU/embed"
+                  src="https://www.instagram.com/p/DTWfdI9keRn/embed"
                   width="100%"
                   height="100%"
                   allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
